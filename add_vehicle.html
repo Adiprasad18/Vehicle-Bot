@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Vehicle - Vehicle Solution Bot</title>
+    <link rel="stylesheet" href="shared.css">
+    <link rel="stylesheet" href="try.css">
+    <style>
+        /* Container styles */
+        .container {
+            display: flex;
+            margin-top: 120px;
+            margin-bottom: 50px;
+            background-color: #16213e;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            width: 60%;
+            max-width: 500px;
+            color: #f0f0f0;
+        }
+
+        h1 {
+            color: #f0f0f0;
+            text-align: center;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        input, select {
+            padding: 10px;
+            border-radius: 5px;
+            border: 1px solid #2294ed;
+        }
+
+        input:focus, select:focus {
+            outline: none;
+            border-color: #ff4c4c;
+        }
+
+        /* Submit button styling */
+        .submit-button {
+            background-color: #ff5722;;
+            color: white;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .submit-button:hover {
+            background-color: #1a73e8;
+        }
+
+        /* Success message styles */
+        .success-message, .error-message {
+            display: none;
+            padding: 10px;
+            margin-top: 15px;
+            border-radius: 5px;
+        }
+
+        .success-message {
+            background-color: #4caf50;
+            color: white;
+        }
+
+        .error-message {
+            background-color: #f44336;
+            color: white;
+        }
+
+        /* Back to Dashboard button styling */
+        /* .back-button {
+            display: inline-block;
+            background-color: #0f3460;
+            padding: 10px 20px;
+            border-radius: 8px;
+            text-decoration: none;
+            color: #e0e0e0;
+            font-size: 1em;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            margin-top: 20px;
+            text-align: center;
+        } */
+
+        .back-button{
+            background-color: #ff5722;
+            color: white;
+        }
+
+        .back-button:hover {
+            background-color: #2294ed;
+        }
+
+        /* Mobile responsiveness */
+        @media (max-width: 600px) {
+            .container {
+                width: 80%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header></header>
+        <nav class="navbar">
+            <div class="navbar-logo">
+                <h1>Vehicle-bot</h1>
+            </div>
+            <ul class="navbar-links">
+                <li><a href="./try.html">Home</a></li>
+                <li><a href="#">About Us</a></li>
+                <li><a href="#">Features</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+            <div class="navbar-right">
+                <a href="#" class="btn login-btn"></a>
+                <a href="dashboard.html" class="back-button">Back to Dashboard</a>
+            </div>
+        </nav>
+    </header>
+    
+
+    <div class="container">
+        <h1>Add Vehicle</h1>
+
+        <!-- Success/Failure messages -->
+        <div class="success-message" id="success-message">
+            Vehicle added successfully!
+        </div>
+        <div class="error-message" id="error-message">
+            Please fill out all fields correctly.
+        </div>
+
+        <!-- Form for adding vehicle -->
+        <form id="vehicle-form">
+            <!-- Select Vehicle Maker -->
+            <label for="vehicle-maker">Select Vehicle Maker:</label>
+            <select id="vehicle-maker" required>
+                <option value="" disabled selected>Select Maker</option>
+                <option value="Maruti Suzuki">Maruti Suzuki</option>
+                <option value="Tata Motors">Tata Motors</option>
+                <option value="Mahindra">Mahindra</option>
+                <option value="Hyundai">Hyundai</option>
+                <option value="Honda">Honda</option>
+                <option value="Kia">Kia</option>
+                <option value="Hero MotoCorp">Hero MotoCorp</option>
+                <option value="TVS">TVS</option>
+                <option value="Royal Enfield">Royal Enfield</option>
+                <option value="Bajaj">Bajaj</option>
+                <!-- Add more Indian makers if necessary -->
+            </select>
+
+            <!-- Select Model Line -->
+            <label for="model-line">Select Model Line:</label>
+            <select id="model-line" required>
+                <option value="" disabled selected>Select Model Line</option>
+
+                <!-- Maruti Suzuki Models -->
+                <optgroup label="Maruti Suzuki">
+                    <option value="Alto">Alto</option>
+                    <option value="Swift">Swift</option>
+                    <option value="Baleno">Baleno</option>
+                    <option value="Brezza">Brezza</option>
+                </optgroup>
+
+                <!-- Tata Motors Models -->
+                <optgroup label="Tata Motors">
+                    <option value="Nexon">Nexon</option>
+                    <option value="Harrier">Harrier</option>
+                    <option value="Tiago">Tiago</option>
+                    <option value="Altroz">Altroz</option>
+                </optgroup>
+
+                <!-- Mahindra Models -->
+                <optgroup label="Mahindra">
+                    <option value="Thar">Thar</option>
+                    <option value="Scorpio">Scorpio</option>
+                    <option value="XUV700">XUV700</option>
+                    <option value="Bolero">Bolero</option>
+                </optgroup>
+
+                <!-- Hyundai Models -->
+                <optgroup label="Hyundai">
+                    <option value="Creta">Creta</option>
+                    <option value="i20">i20</option>
+                    <option value="Venue">Venue</option>
+                    <option value="Verna">Verna</option>
+                </optgroup>
+
+                <!-- Hero MotoCorp Models -->
+                <optgroup label="Hero MotoCorp">
+                    <option value="Splendor">Splendor</option>
+                    <option value="Passion">Passion</option>
+                    <option value="Glamour">Glamour</option>
+                    <option value="Xpulse">Xpulse</option>
+                </optgroup>
+
+                <!-- Royal Enfield Models -->
+                <optgroup label="Royal Enfield">
+                    <option value="Classic 350">Classic 350</option>
+                    <option value="Meteor 350">Meteor 350</option>
+                    <option value="Himalayan">Himalayan</option>
+                    <option value="Bullet 350">Bullet 350</option>
+                </optgroup>
+
+                <!-- Add more models as needed -->
+            </select>
+
+            <!-- Select Year -->
+            <label for="year-of-manufacture">Select Year:</label>
+            <select id="year-of-manufacture" required>
+                <option value="" disabled selected>Select Year</option>
+                <option value="2024">2024</option>
+                <option value="2023">2023</option>
+                <option value="2022">2022</option>
+                <option value="2021">2021</option>
+                <option value="2020">2020</option>
+                <!-- Add more years as needed -->
+            </select>
+
+            <!-- Select Modification -->
+            <label for="modification">Select Modification:</label>
+            <select id="modification" required>
+                <option value="" disabled selected>Select Modification</option>
+                <option value="Standard">Standard</option>
+                <option value="Sport">Sport</option>
+                <option value="Luxury">Luxury</option>
+                <!-- Add more modification options if needed -->
+            </select>
+
+            <!-- Enter VIN -->
+            <label for="vin">Enter Vehicle Identification Number (VIN):</label>
+            <input type="text" id="vin" placeholder="Enter VIN" required pattern="[A-HJ-NPR-Z0-9]{17}" title="VIN must be 17 characters long and contain only letters and numbers" />
+
+            <button type="submit" class="submit-button">Add Vehicle</button>
+        </form>
+    </div>
+
+    <!-- Call to Action Section -->
+    <section id="cta" class="cta">
+        <div class="container1">
+            <h2>Get started with Vehicle Solution Bot</h2>
+            <p>Join thousands of satisfied vehicle owners who rely on our bot for fast, reliable solutions.</p>
+            <a href="#get-started" class="primary-button">Get Started Now</a>
+        </div>
+    </section>
+
+    <!-- Footer Section -->
+    <footer class="footer">
+        <div class="container1">
+            <div class="footer-logo">
+                
+            </div>
+            <div class="footer-links">
+                <ul>
+                    <li><a href="#privacy-policy">Privacy Policy</a></li>
+                    <li><a href="#terms">Terms & Conditions</a></li>
+                    <li><a href="#security">Security</a></li>
+                </ul>
+            </div>
+            <p>&copy; 2024 Vehicle Solution Bot. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Function to display success message
+        function showSuccessMessage() {
+            const successMessage = document.getElementById('success-message');
+            successMessage.style.display = 'block';
+            setTimeout(() => {
+                successMessage.style.display = 'none';
+            }, 3000); // Hide after 3 seconds
+        }
+
+        // Function to display error message
+        function showErrorMessage() {
+            const errorMessage = document.getElementById('error-message');
+            errorMessage.style.display = 'block';
+            setTimeout(() => {
+                errorMessage.style.display = 'none';
+            }, 3000); // Hide after 3 seconds
+        }
+
+        // Handle form submission
+        const form = document.getElementById('vehicle-form');
+        form.addEventListener('submit', function(event) {
+            event.preventDefault(); // Prevent page reload
+
+            // Get form values
+            const vehicleMaker = document.getElementById('vehicle-maker').value;
+            const modelLine = document.getElementById('model-line').value;
+            const yearOfManufacture = document.getElementById('year-of-manufacture').value;
+            const modification = document.getElementById('modification').value;
+            const vin = document.getElementById('vin').value.trim();
+
+            // Form validation
+            if (vehicleMaker && modelLine && yearOfManufacture && modification && vin.length === 17) {
+                showSuccessMessage(); // Show success message
+                form.reset(); // Reset the form
+            } else {
+                showErrorMessage(); // Show error message
+            }
+        });
+    </script>
+
+</body>
+</html>

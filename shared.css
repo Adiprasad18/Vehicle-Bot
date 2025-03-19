@@ -1,0 +1,98 @@
+
+h1 {
+    color: #e0e0e0;
+    font-size: 2em;
+}
+
+/* Card Container */
+.container {
+    background-color: #16213e;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    max-width: 800px;
+    width: 100%;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+/* Card Style */
+.vehicle-card {
+    background-color: #0f3460;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+    text-align: left;
+    color: #e0e0e0;
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Center align card content */
+    transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+}
+
+.vehicle-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+.vehicle-card h2 {
+    margin: 10px 0;
+    font-size: 1.5em;
+    color: #2294ed;
+}
+
+.vehicle-card p {
+    margin: 0 0 15px 0;
+    font-size: 1.2em;
+}
+
+/* Vehicle Image Style */
+.vehicle-image {
+    width: 100%; /* Make image responsive */
+    height: auto; /* Maintain aspect ratio */
+    border-radius: 10px; /* Rounded corners */
+    margin-bottom: 10px; /* Space below image */
+}
+
+.vehicle-card button {
+    background-color: #2294ed;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    color: #fff;
+    cursor: pointer;
+    margin: 5px 0; /* Add space between buttons */
+}
+
+.vehicle-card button:hover {
+    background-color: #1a73e8;
+}
+
+/* Help button specific styling */
+.help-button {
+    background-color: #ff4c4c; /* Red color for help */
+}
+
+.help-button:hover {
+    background-color: #e63946; /* Darker red on hover */
+}
+
+/* Back button styling */
+.back-button {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background-color: #0f3460;
+    padding: 10px 20px;
+    border-radius: 8px;
+    text-decoration: none;
+    color: #e0e0e0;
+    font-size: 1em;
+    cursor: pointer;
+}
+
+.back-button:hover {
+    background-color: #2294ed;
+}

@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>General Chat - Vehicle Solution Bot</title>
+    <link rel="stylesheet" href="shared.css">
+    <link rel="stylesheet" href="try.css">
+    <style>
+        /* Additional styles for chatbot */
+        .chat-container {
+            background-color: #16213e;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            width: 90%; /* Set to 70% of the screen width */
+            max-width: 1200px; /* Optional: limit max width */
+            margin: 120px auto;
+            height: 600px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .back-button{
+            background-color: #ff5722;
+            color: white;
+        }
+            .History{
+                height: 600px;
+                box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+                margin: 120px;
+                background-color: #16213e;
+                display: flex;
+                flex-direction: column;
+                border-radius: 10px;
+                width: 400px;
+                align-items: center;
+
+            }
+            .messages1 {
+            flex-grow: 1;
+            overflow-y: auto;
+            padding: 10px;
+            border: 1px solid #0f3460;
+            border-radius: 5px;
+            background-color: #0f3460;
+        }
+
+        .messages {
+            flex-grow: 1;
+            overflow-y: auto;
+            padding: 10px;
+            border: 1px solid #0f3460;
+            border-radius: 5px;
+            background-color: #0f3460;
+        }
+
+        .input-container {
+            display: flex;
+            margin-top: 10px;
+        }
+
+        .input-container input {
+            flex-grow: 1;
+            padding: 10px;
+            border-radius: 5px;
+            border: 1px solid #2294ed;
+        }
+
+        .input-container button {
+            background-color: #2294ed;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 5px;
+            color: #fff;
+            cursor: pointer;
+            margin-left: 5px;
+        }
+
+        .input-container button:hover {
+            background-color: #1a73e8;
+        }
+
+        .message {
+            margin: 5px 0;
+            padding: 8px;
+            border-radius: 5px;
+            max-width: 90%;
+        }
+        .messages1 {
+            margin: 5px 0;
+            padding: 8px;
+            border-radius: 5px;
+            max-width: 90%;
+        }
+
+        .user-message {
+            background-color: #2294ed;
+            color: white;
+            align-self: flex-end; /* Align user messages to the right */
+        }
+
+        .bot-message {
+            background-color: #ff4c4c; /* Red color for bot response */
+            color: white;
+            align-self: flex-start; /* Align bot messages to the left */
+        }
+
+        /* Back button styling */
+        /* .back-button {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background-color: #0f3460;
+            padding: 10px 20px;
+            border-radius: 8px;
+            text-decoration: none;
+            color: #e0e0e0;
+            font-size: 1em;
+            cursor: pointer;
+        } */
+
+        .back-button:hover {
+            background-color: #2294ed;
+        }
+        .main{
+            display: flex;
+            margin-right: 8px;   
+        }
+
+    </style>
+</head>
+<body>
+
+
+    <header>
+        <nav class="navbar">
+            <div class="navbar-logo">
+                <h1>Vehicle-bot</h1>
+            </div>
+            <ul class="navbar-links">
+                <li><a href="./try.html">Home</a></li>
+                <li><a href="#">About Us</a></li>
+                <li><a href="#">Features</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+            <div class="navbar-right">
+                <a href="#" class="btn login-btn"></a>
+                <a href="dashboard.html" class="back-button">Back to Dashboard</a>
+            </div>
+        </nav>
+    </header>
+
+    <div class="main">
+    <!-- <div class="History"> -->
+        <!-- <h1>History</h1> -->
+        <!-- <div class="messages1" id="messages1"> -->
+            <!-- Chat messages will appear here -->
+        <!-- </div> -->
+    </div>
+    <div class="chat-container">
+        <h1>Live Chat</h1>
+        <div class="messages" id="messages">
+            <!-- Chat messages will appear here -->
+        </div>
+
+        <div class="input-container">
+            <input type="text" id="user-input" placeholder="Ask about your vehicle..." onkeypress="checkEnter(event)">
+            <button onclick="sendMessage()">Send</button>
+        </div>
+    </div>
+</div>
+
+<!-- Call to Action Section -->
+<section id="cta" class="cta">
+    <div class="container1">
+        <h2>Get started with Vehicle Solution Bot</h2>
+        <p>Join thousands of satisfied vehicle owners who rely on our bot for fast, reliable solutions.</p>
+        <a href="#get-started" class="primary-button">Get Started Now</a>
+    </div>
+</section>
+
+<!-- Footer Section -->
+<footer class="footer">
+    <div class="container1">
+        <div class="footer-logo">
+            
+        </div>
+        <div class="footer-links">
+            <ul>
+                <li><a href="#privacy-policy">Privacy Policy</a></li>
+                <li><a href="#terms">Terms & Conditions</a></li>
+                <li><a href="#security">Security</a></li>
+            </ul>
+        </div>
+        <p>&copy; 2024 Vehicle Solution Bot. All rights reserved.</p>
+    </div>
+</footer>
+
+<script>
+    const messagesContainer = document.getElementById('messages');
+
+    // Function to display a message with typing effect for bot messages
+    function displayTypingEffect(message, type) {
+        const messageElement = document.createElement('div');
+        messageElement.classList.add('message', `${type}-message`);
+        messagesContainer.appendChild(messageElement);
+
+        let i = 0;
+        function typeWriter() {
+            if (i < message.length) {
+                messageElement.textContent += message.charAt(i);
+                i++;
+                setTimeout(typeWriter, 20); // Adjust speed of typing here
+            } else {
+                messagesContainer.scrollTop = messagesContainer.scrollHeight; // Scroll to the bottom
+            }
+        }
+        typeWriter(); // Start typing effect
+    }
+
+    // Function to display a message without typing effect for user messages
+    function displayMessage(message, type) {
+        if (type === 'bot') {
+            displayTypingEffect(message, type); // Use typing effect for bot
+        } else {
+            const messageElement = document.createElement('div');
+            messageElement.classList.add('message', `${type}-message`);
+            messageElement.textContent = message;
+            messagesContainer.appendChild(messageElement);
+            messagesContainer.scrollTop = messagesContainer.scrollHeight; // Scroll to the bottom
+        }
+    }
+
+    // Function to send a message
+    function sendMessage() {
+        const userInput = document.getElementById('user-input');
+        const userMessage = userInput.value;
+
+        if (userMessage.trim() === '') {
+            return; // Ignore empty messages
+        }
+
+        // Display user's message
+        displayMessage(userMessage, 'user');
+
+        // Clear the input
+        userInput.value = '';
+
+        // Simulate bot response with typing effect
+        const botResponse = getBotResponse(userMessage);
+        setTimeout(() => {
+            displayMessage(botResponse, 'bot'); // Display bot's message with typing effect
+        }, 500); // Delay bot response to make it more natural
+    }
+
+    // Function to check for Enter key press
+    function checkEnter(event) {
+        if (event.key === 'Enter') {
+            sendMessage(); // Call sendMessage function on Enter key press
+        }
+    }
+
+    // Function to generate a bot response based on user input
+    function getBotResponse(userMessage) {
+        const responses = {
+            "engine not starting": "If your car engine isn't starting, it could be due to several common issues. Here's a quick troubleshooting guide: Battery Issues Dead battery: The most common reason is a dead or weak battery. Check if the dashboard lights or any electrical components are working. If they aren't, you likely have a dead battery.Loose or corroded battery terminals: Ensure the battery terminals are securely connected and not corroded if not then ask next step .",
+            "tire pressure low": "You can inflate your tires to the recommended pressure.",
+            "brake issue": "It’s best to get your brakes inspected as soon as possible.",
+            "oil change needed": "Consider scheduling an oil change if it's been more than 5000 miles.",
+            "overheating": "Check your coolant level and look for leaks.",
+            "need service": "Regular maintenance is key. Check your manual for service intervals.",
+            // Add more vehicle-related queries and responses here
+        };
+
+        // Default response if no match found
+        return responses[userMessage.toLowerCase()] || "I'm not sure how to help with that. Please consult your vehicle manual or a mechanic.";
+    }
+
+    // Function to simulate bot's initial greeting
+    function initialBotGreeting() {
+        const initialMessage = "What problem are you facing?";
+        setTimeout(() => {
+            displayMessage(initialMessage, 'bot'); // Display the initial bot message with typing effect
+        }, 500); // Delay to simulate a more natural response
+    }
+
+    // Call initialBotGreeting when the page loads
+    window.onload = function() {
+        initialBotGreeting(); // Show the initial message with typing effect
+    };
+</script>
+
+
+</body>
+</html>

@@ -1,0 +1,379 @@
+/* Global Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    color: #333;
+    background-color: #f9f9f9;
+    scroll-behavior: smooth;
+}
+
+/* Container */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Top Banner */
+.top-banner {
+    background: linear-gradient(to right, #4caf50, #2294ed);
+    color: white;
+    padding: 110px 0;
+    text-align: center;
+    animation: fadeIn 2s ease-in-out;
+}
+
+.banner-text h1 {
+    font-size: 3rem;
+    margin-bottom: 20px;
+    animation: fadeInDown 1s ease-in;
+}
+
+.banner-text p {
+    font-size: 1.2rem;
+    margin-bottom: 30px;
+}
+
+.primary-button {
+    background-color: #ff5722;
+    color: white;
+    padding: 10px 25px;
+    border-radius: 50px;
+    text-transform: uppercase;
+    text-decoration: none;
+    font-weight: bold;
+    transition: transform 0.3s, background-color 0.3s;
+}
+
+.primary-button:hover {
+    background-color: #ff7043;
+    transform: scale(1.1);
+}
+
+/* Navbar */
+.navbar {
+    background-color: #fff;
+    padding: 25px 0;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    position: fixed; /* Make the navbar fixed */
+    width: 100%; /* Make it take full width */
+    height: 10%;
+    top: 0; /* Stick to the top of the page */
+    z-index: 1000; /* Ensure it stays on top of other elements */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px; /* Add padding for spacing */
+}
+
+/* Navbar Logo */
+.navbar-logo img {
+    width: 130px;
+}
+
+.navbar-logo h1 {
+    color: #2294ed;
+    font-size: 1.8rem;
+    font-weight: bold;
+}
+
+/* Navbar Links */
+.navbar-links {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+}
+
+.navbar-links li {
+    display: inline;
+}
+
+.navbar-links a {
+    text-decoration: none;
+    color: #000;
+    font-size: 1rem;
+    font-weight: bold;
+    padding: 8px 20px;
+    transition: color 0.3s ease;
+}
+
+.navbar-links a:hover {
+    color: #2294ed;
+}
+
+/* Navbar Right (Login & Register Buttons) */
+.navbar-right {
+    display: flex;
+    gap: 15px;
+}
+
+.navbar-right .btn {
+    padding: 8px 20px;
+    border-radius: 20px;
+    text-decoration: none;
+    font-size: 1rem;
+    transition: background-color 0.3s ease;
+}
+
+.login-btn {
+    background-color: #ff5722;
+    color: white;
+}
+
+.register-btn {
+    background-color: #ff5722;
+    color: white;
+}
+
+.login-btn:hover {
+    background-color: #1b7bc0;
+}
+
+.register-btn:hover {
+    background-color: #2294ed;
+    color: white;
+}
+
+/* Hero Section */
+.hero {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 80px 0;
+
+    background-color: white;
+}
+
+.hero-content h2 {
+    font-size: 2.8rem;
+    color: #333;
+    margin-bottom: 20px;
+    animation: fadeInUp 1.5s ease;
+}
+
+.hero-content p {
+    font-size: 1.3rem;
+    margin-bottom: 30px;
+    color: #555;
+}
+
+.hero-image img {
+    width: 500px;
+    animation: slideImage 1.5s forwards ease-out;
+    opacity: 0;
+}
+
+/* Services Section */
+.services {
+    padding: 60px 0;
+    background-color: #fafafa;
+}
+
+.services h2 {
+    text-align: center;
+    margin-bottom: 50px;
+    color: #333;
+    font-size: 2.5rem;
+}
+
+.service-cards {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    text-align: center;
+}
+
+.card {
+    background-color: white;
+    padding: 25px;
+    border-radius: 10px;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s, box-shadow 0.3s;
+    cursor: pointer;
+}
+
+.card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+.card img {
+    width: 100px;
+    margin-bottom: 20px;
+}
+
+.card h3 {
+    font-size: 1.4rem;
+    margin-bottom: 15px;
+    color: #333;
+}
+
+.card p {
+    font-size: 1rem;
+    color: #666;
+}
+
+/* Features Section */
+.features {
+    padding: 60px 0;
+    background-color: #fff;
+}
+
+.features h2 {
+    text-align: center;
+    margin-bottom: 50px;
+    color: #333;
+    font-size: 2.5rem;
+}
+
+.features-grid {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    text-align: center;
+}
+
+.feature {
+    background-color: #fafafa;
+    padding: 25px;
+    border-radius: 10px;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s, box-shadow 0.3s;
+    cursor: pointer;
+}
+
+.feature:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+.feature img {
+    width: 100px;
+    margin-bottom: 20px;
+}
+
+.feature h3 {
+    font-size: 1.4rem;
+    margin-bottom: 15px;
+    color: #333;
+}
+
+.feature p {
+    font-size: 1rem;
+    color: #666;
+}
+
+/* Call to Action Section */
+.cta {
+    padding: 60px 0;
+    background: linear-gradient(to right, #2294ed, #4caf50);
+    color: white;
+    text-align: center;
+}
+
+.cta h2 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+}
+
+.cta p {
+    font-size: 1.2rem;
+    margin-bottom: 30px;
+}
+
+.cta .primary-button {
+    background-color: #ff5722;
+    padding: 15px 30px;
+    border-radius: 50px;
+    text-transform: uppercase;
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+.cta .primary-button:hover {
+    background-color: #ff7043;
+    transform: scale(1.1);
+}
+
+/* Footer Section */
+.footer {
+    background-color: #333;
+    color: white;
+    padding: 30px 0;
+    text-align: center;
+}
+
+.footer-logo img {
+    width: 120px;
+    margin-bottom: 20px;
+}
+
+.footer-links ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+}
+
+.footer-links ul li a {
+    color: white;
+    text-decoration: none;
+    font-size: 0.9rem;
+    transition: color 0.3s ease;
+}
+
+.footer-links ul li a:hover {
+    color: #ff7043;
+}
+
+.footer p {
+    margin-top: 20px;
+    font-size: 0.9rem;
+}
+
+/* Animations */
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes fadeInDown {
+    0% {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeInUp {
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes slideImage {
+    0% {
+        transform: translateX(50%);
+        opacity: 0;
+    }
+    100% {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}

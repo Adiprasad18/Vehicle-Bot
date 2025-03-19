@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Vehicles</title>
+    <link rel="stylesheet" href="shared.css">
+    <link rel="stylesheet" href="try.css">
+    <style>
+        body {
+            background: #fafafa;
+            color: white;
+            font-family: Arial, sans-serif;
+            
+        }
+
+        /* Navigation Bar Styles */
+        
+
+        .back-button {
+            position: absolute; /* Position absolute to place it within the navbar */
+            top: 50%; /* Center it vertically */
+            right: 20px; /* Space from the right edge */
+            transform: translateY(-50%); /* Center vertically */
+            background-color: #ff5722; /* Background color of the button */
+            padding: 10px 20px; /* Padding around the button */
+            border-radius: 8px; /* Rounded corners */
+            text-decoration: none; /* Remove underline */
+            color: white;; /* Text color */
+            font-size: 1em; /* Font size */
+            cursor: pointer; /* Pointer cursor */
+            transition: background-color 0.3s; /* Smooth background color change */
+        }
+
+        .back-button:hover {
+            background-color: #2294ed; /* Change background color on hover */
+        }
+
+        h1 {
+            text-align: center; /* Center-aligned heading */
+            margin-bottom: 20px; /* Adds space below the heading */
+            font-size: 2.5em; /* Increases font size for better visibility */
+        }
+
+        .vehicle-container {
+            margin-top: 1%; /* Add space above the vehicle container */
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px; /* Space between vehicle cards */
+            justify-content: center; /* Center-aligns the vehicle cards */
+        }
+
+        .vehicle-card {
+            background-color: #0f3460;
+            border-radius: 10px;
+            padding: 15px;
+            width: 300px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+            position: relative;
+            transition: transform 0.3s, box-shadow 0.3s; /* Add transition */
+        }
+
+        .vehicle-card:hover {
+            transform: translateY(-5px); /* Lift effect on hover */
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4); /* Enhanced shadow */
+        }
+
+        .vehicle-card img {
+            width: 100%;
+            height: auto;
+            border-radius: 5px;
+            object-fit: cover;
+        }
+
+        .vehicle-title {
+            font-size: 1.5em;
+            margin: 10px 0;
+        }
+
+        .vehicle-details {
+            font-size: 1em;
+            margin-bottom: 10px;
+        }
+
+        .vehicle-buttons {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 10px;
+        }
+
+        .vehicle-buttons .btn {
+            margin-left: 10px; /* Add left margin to create space */
+        }
+
+        .vehicle-buttons .btn:first-child {
+            margin-left: 0; /* Remove left margin from the first button */
+        }
+
+
+        .btn {
+            background-color: #ff5722;
+            color: white;
+            border: none;
+            padding: 10px;
+            border-radius: 5px;
+            cursor: pointer;
+            text-align: center;
+            text-decoration: none;
+            flex-grow: 1;
+            transition: background-color 0.3s, transform 0.2s; /* Add transition */
+        }
+
+        .btn:hover {
+            background-color: #1a73e8;
+            transform: scale(1.05); /* Slightly enlarge button on hover */
+        }
+
+        .add-car-card {
+            background-color: #0f3460;
+            border-radius: 10px;
+            padding: 15px;
+            width: 300px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            transition: transform 0.3s; /* Add transition */
+        }
+
+        .add-car-card:hover {
+            transform: scale(1.05); /* Enlarge add vehicle card on hover */
+        }
+
+        .add-car-card p {
+            font-size: 1.5em;
+            color: #2294ed;
+        }
+
+        .add-car-icon {
+            font-size: 2em;
+            color: #2294ed;
+        }
+
+        /* Styles for Main Container */
+        .main-container {
+            max-width: 1200px; /* Set a max width for your layout */
+            margin: 0 auto; /* Center the container */
+            padding: 20px; /* Add some padding */
+        }
+
+        .cta{
+            margin-top: 2px;
+        }
+        .my-Vehicles{
+            margin-top: 7%;
+           
+        }
+        .my-Vehicles>h1{
+              color: #3b3939;
+        }
+        
+
+    </style>
+</head>
+<body>
+
+    <body>
+
+             <!-- Navigation Bar -->
+    <header>
+        <nav class="navbar">
+            <div class="navbar-logo">
+                <h1>Vehicle-bot</h1>
+            </div>
+            <ul class="navbar-links">
+                <li><a href="./try.html">Home</a></li>
+                <li><a href="#">About Us</a></li>
+                <li><a href="#">Features</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+            <div class="navbar-right">
+                <a href="#" class="btn login-btn"></a>
+                <a href="dashboard.html" class="back-button">Back to Dashboard</a>
+            </div>
+        </nav>
+    </header>
+                    <div class="my-Vehicles">
+                        <h1>My Vehicles</h1>
+                    </div>
+        <!-- Main Container -->
+        <div class="main-container">
+    
+            <!-- Navigation Bar -->
+            <!-- <div class="navbar">
+                <h1>My Vehicles</h1>
+                <a href="dashboard.html" class="back-button">Back to Dashboard</a>
+            </div>
+     -->
+            <!-- Container for vehicle cards -->
+            <div class="vehicle-container">
+                <div class="vehicle-card">
+                    <img src="images/creta.png" alt="Hyundai Creta">
+                    <div class="vehicle-title">HYUNDAI CRETA</div>
+                    <div class="vehicle-details">1.6L/Petrol</div>
+                    <div class="vehicle-details">Model Year: 2018</div>
+                    <div class="vehicle-buttons">
+                        <a href="https://www.hyundai.com/in/en/connect-to-service/genuine-parts" class="btn">Open Service Kit</a>
+                        <a href="general_chat.html" class="btn">Help</a> <!-- Changed Help button to link -->
+                    </div>
+                </div>
+            
+                <div class="vehicle-card">
+                    <img src="images/seltos.png" alt="KIA Seltos">
+                    <div class="vehicle-title">KIA SELTOS</div>
+                    <div class="vehicle-details">1.5L/Petrol</div>
+                    <div class="vehicle-details">Model Year: 2019</div>
+                    <div class="vehicle-buttons">
+                        <a href="https://www.kia.com/in/service/customer-awareness/kia-genuine-spare-parts.html" class="btn">Open Service Kit</a>
+                        <a href="general_chat.html" class="btn">Help</a> <!-- Changed Help button to link -->
+                    </div>
+                </div>
+                
+                <div class="vehicle-card">
+                    <img src="images/harrier.png" alt="TATA Harrier">
+                    <div class="vehicle-title">TATA HARRIER</div>
+                    <div class="vehicle-details">1.2L/Petrol</div>
+                    <div class="vehicle-details">Model Year: 2020</div>
+                    <div class="vehicle-buttons">
+                        <a href="https://www.tgpindia.com/" class="btn">Open Service Kit</a>
+                        <a href="general_chat.html" class="btn">Help</a> <!-- Changed Help button to link -->
+                    </div>
+                </div>
+            
+                <!-- Add Vehicle Card -->
+                <div class="vehicle-card">
+                    
+                    <div class="vehicle-title">ADD VEHICLE</div>
+                    <div class="vehicle-details">Click to add a new vehicle</div>
+                    <div class="vehicle-buttons">
+                        <a href="add_vehicle.html" class="btn">Add Vehicle</a>
+                    </div>
+                </div>
+            </div>
+            
+    
+        </div>
+
+        <!-- Call to Action Section -->
+    <section id="cta" class="cta">
+        <div class="container1">
+            <h2>Get started with Vehicle Solution Bot</h2>
+            <p>Join thousands of satisfied vehicle owners who rely on our bot for fast, reliable solutions.</p>
+            <a href="#get-started" class="primary-button">Get Started Now</a>
+        </div>
+    </section>
+
+    <!-- Footer Section -->
+    <footer class="footer">
+        <div class="container1">
+            <div class="footer-logo">
+                
+            </div>
+            <div class="footer-links">
+                <ul>
+                    <li><a href="#privacy-policy">Privacy Policy</a></li>
+                    <li><a href="#terms">Terms & Conditions</a></li>
+                    <li><a href="#security">Security</a></li>
+                </ul>
+            </div>
+            <p>&copy; 2024 Vehicle Solution Bot. All rights reserved.</p>
+        </div>
+    </footer>
+    
+    </body>
+    
+
+</body>
+</html>
